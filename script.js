@@ -6,14 +6,14 @@ const outputOne = document.getElementById("output-one");
 const outputTwo = document.getElementById("output-two");
 
 
-
 submitBtn.addEventListener('click', generatePassword)
 
 
 function generatePassword() {
     let length = Math.floor(passwordLength.value);
+    outputOne.textContent = "";
+    outputTwo.textContent = "";
     if (length >= 1 && length <= 25) {
-        console.log(length)
         for(let i = 1; i <= length; i++) {
             outputOne.textContent += getCharacter();
             outputTwo.textContent += getCharacter();
