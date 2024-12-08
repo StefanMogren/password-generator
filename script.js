@@ -5,6 +5,10 @@ const inputPasswordLength = document.getElementById("password-length");
 const outputOne = document.getElementById("output-one");
 const outputTwo = document.getElementById("output-two");
 
+
+let noSymbols = true;
+let noNumbers = true;
+
 submitBtn.addEventListener('click', generatePassword)
 outputOne.addEventListener('click', () => { copyPassword(outputOne); })
 outputTwo.addEventListener('click', () => { copyPassword(outputTwo); })
@@ -14,6 +18,18 @@ function copyPassword(output) {
         navigator.clipboard.writeText(output.textContent)
     }
 }
+
+// if (/[^a-zA-Z0-9]/.test("¤")) {
+//     console.log("It's a symbol!")
+// } else {
+//     console.log("It isn't a symbol...")
+// }
+// if(isNaN("{")) {
+//     console.log("It isn't a number...")
+// } else {
+//     console.log("It's a number!")
+// }
+
 
 function generatePassword() {
     let length = Math.floor(inputPasswordLength.value);
@@ -29,5 +45,33 @@ function generatePassword() {
 
 function getCharacter() {
     let randomNumber = Math.floor(Math.random() * characters.length);
+    
+    if (noSymbols === true && noNumbers === true) {
+        while (/[^a-zA-Z]/.test(characters[randomNumber]) === true) {
+            randomNumber = Math.floor(Math.random() * characters.length);
+        }
+    } else if (noSymbols === true) {
+        while (/[^a-zA-Z0-9]/.test(characters[randomNumber]) === true) {
+            randomNumber = Math.floor(Math.random() * characters.length);
+        }
+    } else if (noNumbers === true) {
+        while (isNaN(characters[randomNumber]) === false) {
+            randomNumber = Math.floor(Math.random() * characters.length);
+        }
+    }
     return characters[randomNumber];
 };
+
+
+// console.log(characters[randomNumber])
+
+// if (noSymbols === true && /[^a-zA-Z0-9]/.test(characters[randomNumber]) === true) {
+//     console.log("It didn't pass through and said: " + /[^a-zA-Z0-9]/.test(characters[randomNumber]));
+//     getCharacter();
+// } else if (noNumbers === true && isNaN(characters[randomNumber]) === false) {
+//     getCharacter();
+// } else {
+//     console.log("It passed through and said:" + /[^a-zA-Z0-9]/.test(characters[randomNumber]));
+//     console.log(characters[randomNumber])
+//     return characters[randomNumber];
+// }
