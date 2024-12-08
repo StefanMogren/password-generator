@@ -14,14 +14,27 @@
         </h1>
         <p class="main-content__text">Never use an insecure password again</p>
         <section class="main-content__inner-grid">
-            <button class="main-content__submit-button" id="submit-button">Generate passwords</button>
             <section class="main-content__container">
                 <label for="password-length" class="main-content__label">Choose the length of your password between 1 and 25</label>
                 <input type="number" min="1" max="25" name="password-length" id="password-length" class="main-content__input">
+
             </section>
+            <section class="main-content__container">
+                <section class="main-content__container">
+                    <input type="checkbox" name="symbols-checkbox" class="main-content__checkbox" id="symbols-checkbox">
+                    <label for="symbols-checkbox">No symbols</label>
+                </section>
+    
+                <section class="main-content__container">
+                    <input type="checkbox" name="numbers-checkbox" class="main-content__checkbox" id="numbers-checkbox">
+                    <label for="numbers-checkbox">No numbers</label>
+                </section>
+            </section>
+            
+            <button class="main-content__submit-button" id="submit-button">Generate passwords</button>
         </section>
         <hr class="main-content__line">
-
+        
         <section class="main-content__inner-grid">
             <p class="main-content__output" id="output-one"></p>
             <p class="main-content__output" id="output-two"></p>
