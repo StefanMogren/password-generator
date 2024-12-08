@@ -46,6 +46,10 @@
     background: #10B981;
 }
 
+.main-content__submit-button:active {
+    background: #55F991;
+}
+
 .main-content__inner-grid {
     display: grid;
     align-items: end;
