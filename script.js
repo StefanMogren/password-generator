@@ -49,7 +49,7 @@ function generatePassword() {
     outputTwo.textContent = "";
 
     // The function will only run if the inputted length is between 1 and 16. No negative or ridiculously large values.
-    if (length >= 1 && length <= 25) {
+    if (length >= 1 && length <= 16) {
         for(let i = 1; i <= length; i++) {
             outputOne.textContent += getCharacter();
             outputTwo.textContent += getCharacter();
