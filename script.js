@@ -42,15 +42,15 @@ function copyPassword(output) {
 
 function generatePassword() {
     // The password length inputted by the user is used. It is also floored in case anyone decides to try and input a decimal value.
-    let length = Math.floor(inputPasswordLength.value);
+    let passwordLength = Math.floor(inputPasswordLength.value);
 
     // Empties the two output fields before inputting new password suggestions.
     outputOne.textContent = "";
     outputTwo.textContent = "";
 
     // The function will only run if the inputted length is between 1 and 16. No negative or ridiculously large values.
-    if (length >= 1 && length <= 16) {
-        for(let i = 1; i <= length; i++) {
+    if (passwordLength >= 1 && passwordLength <= 16) {
+        for(let i = 1; i <= passwordLength; i++) {
             outputOne.textContent += getCharacter();
             outputTwo.textContent += getCharacter();
         }
@@ -61,7 +61,7 @@ function generatePassword() {
 
 
 function getCharacter() {
-    // Randomizes a number according to the length of the inputted password length.
+    // Randomizes a number according to the length of the index characters.
     let randomNumber = Math.floor(Math.random() * characters.length);
     
     if (noSymbols === true && noNumbers === true) {
