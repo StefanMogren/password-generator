@@ -1,7 +1,17 @@
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
 
 // The password length inputted by the user. Requires a length between 1 and 16
+// The addEventListener ensures the user can't enter invalid numbers or symbols
+// If the value exceeds 16, then put the value to 16
+// If any symbols are used, <imput type="number"> interprets the value as an empty value. This means value.length becomes zero. If this is ever the case, put the value to ""
 const inputPasswordLength = document.getElementById("password-length");
+inputPasswordLength.addEventListener('keyup', () => {
+    if (inputPasswordLength.value > 16) {
+        inputPasswordLength.value = 16;
+    } else if (inputPasswordLength.value.length === 0) {
+        inputPasswordLength.value = "";
+    }
+});
 
 // The Generate Password button.
 // The eventListener generates two passwords and outputs them into the two output fields.
